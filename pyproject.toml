@@ -1,3 +1,45 @@
+[project]
+name = "waybar-check-gmail"
+version = "0.0.1"
+description = "Script to check Gmail messages & populate waybar widget with data."
+readme = "README.md"
+requires-python = ">=3.0"
+license = { file = "LICENSE" }
+keywords = ["waybar", "gmail", "wayland", "sway", "inbox"]
+authors = [{ name = "James Cuzella", email = "james.cuzella@lyraphase.com" }]
+maintainers = [
+    { name = "James Cuzella", email = "james.cuzella@lyraphase.com" },
+]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Programming Language :: Python",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Natural Language :: English",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Communications :: Email",
+    "Topic :: Desktop Environment :: Window Managers :: Sway",
+    "Topic :: Utilities",
+]
+
+dependencies = ["filelock ~= 3.12", "httplib2 ~= 0.22", "oauth2client ~= 4.1"]
+
+
+[project.urls]
+Homepage = "https://github.com/LyraPhase/waybar-check-gmail"
+Documentation = "https://github.com/LyraPhase/waybar-check-gmail"
+Repository = "https://github.com/LyraPhase/waybar-check-gmail.git"
+Changelog = "https://github.com/LyraPhase/waybar-check-gmail/blob/master/CHANGELOG.md"
+
+[project.scripts]
+waybar-check-gmail-cli = "waybar-check-gmail:main_cli"
+
+[project.gui-scripts]
+waybar-check-gmail-gui = "waybar-check-gmail:main_gui"
+
+
 [tool.isort]
 multi_line_output = 3
 include_trailing_comma = true
