@@ -1,0 +1,33 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"python.linting.flake8Enabled": true,
+		"python.linting.ignorePatterns": [
+			"**/site-packages/**/*.py",
+			".vscode/*.py",
+			"**/usr/bin/*",
+			"**/usr/local/bin/*"
+		],
+		"python.linting.banditEnabled": true,
+		"editor.codeActionsOnSave": {
+		  "source.organizeImports": true
+		},
+		"python.formatting.provider": "black",
+		"isort.args": [
+		  "--profile",
+		  "black"
+		],
+		"alignment.operatorPadding": "left"
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-python.python",
+			"ms-python.isort",
+			"earshinov.simple-alignment"
+		]
+	}
+}
