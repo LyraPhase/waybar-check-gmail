@@ -10,16 +10,17 @@ exclude: |
     )$
 repos:
   - repo: https://github.com/python/black.git
-    rev: 19.10b0
+    rev: 23.7.0
     hooks:
       - id: black
         language_version: python3
   - repo: https://github.com/PyCQA/flake8.git
-    rev: 3.7.9
+    rev: 6.1.0
     hooks:
       - id: flake8
         additional_dependencies:
-          - flake8-black>=0.1.1
+          - flake8-black>=0.3.6
+          - flake8-isort>=6.0.0
         language_version: python3
   -   repo: https://github.com/pre-commit/pre-commit-hooks.git
       rev: v1.1.1
