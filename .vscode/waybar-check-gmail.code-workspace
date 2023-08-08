@@ -26,7 +26,10 @@
 		"recommendations": [
 			"ms-python.python",
 			"ms-python.isort",
-			"earshinov.simple-alignment"
+			"earshinov.simple-alignment",
+			"almenon.arepl",
+			"the-compiler.python-tox",
+			"tamasfe.even-better-toml"
 		]
 	}
 }
