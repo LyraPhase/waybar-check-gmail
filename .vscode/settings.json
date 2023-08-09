@@ -11,5 +11,11 @@
         "!**/vendor",
         "!**/.git",
         "!**/LICENSE.md"
-    ]
+    ],
+    "python.linting.banditArgs": [
+        "-c",
+        "pyproject.toml",
+        "-v",
+        "-r"
+      ],
 }

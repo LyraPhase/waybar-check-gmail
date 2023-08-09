@@ -74,13 +74,13 @@ target_version = ["py37", "py38", "py39", "py310", "py311"]
 
 [tool.bandit]
 exclude_dirs = [
+    ".tox",
     "tests",
     ".vscode",
     "coverage-*",
-    "*.egg-info/",
+    "*.egg-info",
     "*.pyc",
     "__pycache__",
     ".pytest_cache",
     "test-results*",
-    ".tox",
 ]
