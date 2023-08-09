@@ -29,7 +29,8 @@
 			"earshinov.simple-alignment",
 			"almenon.arepl",
 			"the-compiler.python-tox",
-			"tamasfe.even-better-toml"
+			"tamasfe.even-better-toml",
+			"davidanson.vscode-markdownlint"
 		]
 	}
 }
