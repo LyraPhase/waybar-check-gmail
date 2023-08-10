@@ -1,0 +1,20 @@
+name: security
+
+on:
+  pull_request:
+    branches:
+      - master
+      - main
+      - develop
+  push:
+    branches:
+      - master
+      - main
+      - develop
+
+jobs:
+  bandit:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Bandit Static Analyzer
+      uses: mdegis/bandit-action@v1.0.1
