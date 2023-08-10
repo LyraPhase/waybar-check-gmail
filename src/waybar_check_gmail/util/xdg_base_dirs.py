@@ -67,11 +67,8 @@ class XDGBaseDirs:
 
     def __repr__(self):
         return (
-            "%s(xdg_config_home=%s, xdg_data_home=%s, xdg_cache_home=%s,"
-            "xdg_state_home=%s, xdg_runtime_dir=%s)" % self.__class__.__name__,
-            self.xdg_config_home,
-            self.xdg_data_home,
-            self.xdg_cache_home,
-            self.xdg_state_home,
-            self.xdg_runtime_dir,
+            f"{self.__class__.__name__}(xdg_config_home={self.xdg_config_home}, "
+            f"xdg_data_home={self.xdg_data_home}, xdg_cache_home={self.xdg_cache_home}, "
+            f"xdg_state_home={self.xdg_state_home}, "
+            f"xdg_runtime_dir={self.xdg_runtime_dir})"
         )
