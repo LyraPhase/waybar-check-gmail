@@ -2,7 +2,7 @@
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
     "markdownlint.config": {
-        "line-length": true,
+        "line-length": true
     },
     "markdownlint.lintWorkspaceGlobs": [
         "**/*.{md,mkd,mdwn,mdown,markdown,markdn,mdtxt,mdtext,workbook}",
@@ -17,5 +17,5 @@
         "pyproject.toml",
         "-v",
         "-r"
-      ],
+      ]
 }
