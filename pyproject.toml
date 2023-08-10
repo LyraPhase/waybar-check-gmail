@@ -73,7 +73,15 @@ deps =
     pytest-mock~=3.10
     pytest-xdist~=3.3
     GitPython~=3.1
+allowlist_externals =
+    pwd
+    ls
+    tree
 commands =
+    pwd
+    ls -l
+    tree src
+    pytest --version
     pytest --basetemp={envtmpdir} --trace-config --override-ini='pythonpath="src"' --import-mode=importlib {posargs:tests}
 
 
