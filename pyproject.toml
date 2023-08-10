@@ -73,16 +73,8 @@ deps =
     pytest-mock~=3.10
     pytest-xdist~=3.3
     GitPython~=3.1
-allowlist_externals =
-    pwd
-    ls
-    tree
 commands =
-    pwd
-    ls -l
-    tree src
-    pytest --version
-    pytest --basetemp={envtmpdir} --trace-config --override-ini='pythonpath="src"' --import-mode=importlib {posargs:tests}
+    pytest --basetemp={envtmpdir} {posargs:tests}
 
 
 [testenv:unit]
@@ -181,6 +173,7 @@ exclude_dirs = [
 
 [tool.pytest.ini_options]
 addopts = ["--import-mode=importlib"]
+pythonpath = [".", "src"]
 markers = [
     "great: It's not good, not bad, but somewhat better than good? ¯\\_(ツ)_/¯",
     "serial",
