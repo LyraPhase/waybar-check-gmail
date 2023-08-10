@@ -84,3 +84,21 @@ exclude_dirs = [
     ".pytest_cache",
     "test-results*",
 ]
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+pythonpath = [
+    ".", "src",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "serial",
+    "great: It's not good, not bad, but somewhat better than good? ¯\\_(ツ)_/¯",
+]
+
+# TODO: test coverage setup
+# [tool.coverage.run]
+# branch = true
+# source = [""]
