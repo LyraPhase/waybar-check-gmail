@@ -74,7 +74,7 @@ deps =
     pytest-xdist~=3.3
     GitPython~=3.1
 commands =
-    pytest --basetemp={envtmpdir} {posargs:tests}
+    pytest --basetemp={envtmpdir} --trace-config --override-ini='pythonpath="src"' --import-mode=importlib {posargs:tests}
 
 
 [testenv:unit]
