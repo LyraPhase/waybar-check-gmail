@@ -5,20 +5,18 @@ description = "Script to check Gmail messages & populate waybar widget with data
 readme = "README.md"
 requires-python = ">=3.0"
 license = { file = "LICENSE" }
-keywords = ["waybar", "gmail", "wayland", "sway", "inbox"]
+keywords = ["gmail", "inbox", "sway", "waybar", "wayland"]
 authors = [{ name = "James Cuzella", email = "james.cuzella@lyraphase.com" }]
-maintainers = [
-    { name = "James Cuzella", email = "james.cuzella@lyraphase.com" },
-]
+maintainers = [{ name = "James Cuzella", email = "james.cuzella@lyraphase.com" }]
 classifiers = [
     "Development Status :: 1 - Planning",
-    "Programming Language :: Python",
     "Environment :: Console",
     "Intended Audience :: End Users/Desktop",
     "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
     "Natural Language :: English",
     "Operating System :: POSIX :: Linux",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python",
     "Topic :: Communications :: Email",
     "Topic :: Desktop Environment :: Window Managers :: Sway",
     "Topic :: Utilities",
@@ -27,25 +25,28 @@ classifiers = [
 dependencies = ["filelock ~= 3.12", "httplib2 ~= 0.22", "oauth2client ~= 4.1"]
 
 
-[project.urls]
-Homepage = "https://github.com/LyraPhase/waybar-check-gmail"
-Documentation = "https://github.com/LyraPhase/waybar-check-gmail"
-Repository = "https://github.com/LyraPhase/waybar-check-gmail.git"
-Changelog = "https://github.com/LyraPhase/waybar-check-gmail/blob/master/CHANGELOG.md"
+    [project.urls]
+    Homepage      = "https://github.com/LyraPhase/waybar-check-gmail"
+    Documentation = "https://github.com/LyraPhase/waybar-check-gmail"
+    Repository    = "https://github.com/LyraPhase/waybar-check-gmail.git"
+    Changelog     = "https://github.com/LyraPhase/waybar-check-gmail/blob/master/CHANGELOG.md"
 
-[project.scripts]
-waybar-check-gmail-cli = "waybar-check-gmail:main_cli"
 
-[project.gui-scripts]
-waybar-check-gmail-gui = "waybar-check-gmail:main_gui"
+#[project.scripts]
+#waybar-check-gmail-cli = "waybar_check_gmail:main_cli"
+
+#[project.gui-scripts]
+#waybar-check-gmail-gui = "waybar_check_gmail:main_gui"
+
 
 
 [tool.isort]
-multi_line_output = 3
+multi_line_output      = 3
 include_trailing_comma = true
-force_grid_wrap = 0
-line_length = 90
-profile = "black"
+force_grid_wrap        = 0
+line_length            = 90
+profile                = "black"
+
 # TODO: tox4 config?
 # Ref: https://github.com/tox-dev/tox/issues/999
 
@@ -56,6 +57,13 @@ requires =
     tox>=4
 #env_list = linters, type, py{38,39,310,311}
 env_list = linters, py{38,39,310,311}
+
+[gh-actions]
+python =
+    3.8: py38
+    3.9: py39
+    3.10: py310
+    3.11: py311
 
 [testenv]
 description = run tests
@@ -148,32 +156,28 @@ exclude = '''
 '''
 # Targeting future versions as well so we don't have black reformatting code
 # en masse later.
-target_version = ["py37", "py38", "py39", "py310", "py311"]
+target_version = ["py310", "py311", "py37", "py38", "py39"]
 
 [tool.bandit]
 exclude_dirs = [
-    ".tox",
-    "tests",
-    ".vscode",
-    "coverage-*",
     "*.egg-info",
     "*.pyc",
-    "__pycache__",
     ".pytest_cache",
+    ".tox",
+    ".vscode",
+    "__pycache__",
+    "coverage-*",
     "test-results*",
+    "tests",
 ]
 
 [tool.pytest.ini_options]
-addopts = [
-    "--import-mode=importlib",
-]
-pythonpath = [
-    ".", "src",
-]
+addopts = ["--import-mode=importlib"]
+pythonpath = [".", "src"]
 markers = [
-    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
-    "serial",
     "great: It's not good, not bad, but somewhat better than good? ¯\\_(ツ)_/¯",
+    "serial",
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
 ]
 
 # TODO: test coverage setup
