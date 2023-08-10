@@ -119,6 +119,17 @@ Ready to contribute? Here's how to set up `waybar-check-gmail` for local develop
 
       pre-commit install
 
+   Finally, to test multiple python versions you will need to install multiple
+   versions side-by-side.  The easiest way to do this is to use [`pyenv`][12],
+   and [`python-build`][13].  Note that `python-build` is installed by default
+   with `pyenv`, but your OS may have this as a separate package.
+   To install the versions of python this project is using:
+
+      cat .python-version | sed -e '/^system/d' | tr '\n'  ' ' \
+      | xargs pyenv install
+
+   Alternatively, you may [select and install some other versions][14].
+
 6. Commit your changes and push your branch to GitHub:
 
     git add .
@@ -164,6 +175,9 @@ Before you submit a pull request, check that it meets these guidelines:
 [8]: https://pre-commit.com/
 [9]: https://bandit.readthedocs.io/en/latest/
 [10]: https://tox.wiki/en/3.27.0/example/pytest.html
+[12]: https://github.com/pyenv/pyenv#installation
+[13]: https://github.com/pyenv/pyenv/tree/master/plugins/python-build
+[14]: https://coderwall.com/p/vj2jxg/select-install-python-versions-easily-with-fzf
 
 <!-- TODO: Implement/document python-poetry -->
 <!-- [11]: https://hackersandslackers.com/python-poetry-package-manager/ -->
