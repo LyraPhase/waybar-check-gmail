@@ -49,6 +49,84 @@ profile = "black"
 # TODO: tox4 config?
 # Ref: https://github.com/tox-dev/tox/issues/999
 
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+requires =
+    tox>=4
+#env_list = linters, type, py{38,39,310,311}
+env_list = linters, py{38,39,310,311}
+
+[testenv]
+description = run tests
+deps =
+    pytest>=7
+    pytest-sugar~=0.9
+    pytest-mock~=3.10
+    pytest-xdist~=3.3
+    GitPython~=3.1
+commands =
+    pytest --basetemp={envtmpdir} {posargs:tests}
+
+
+[testenv:unit]
+description = run unit tests
+commands =
+    pytest -m 'unit and not skip' --basetemp={envtmpdir} {posargs:tests}
+
+
+[testenv:integration]
+description = run integration tests
+commands =
+    pytest -m 'integration and not skip' --basetemp={envtmpdir} {posargs:tests}
+
+
+[testenv:linters]
+description = run linters
+basepython = python3.11
+skip_install = true
+deps =
+    {[testenv:black]deps}
+    {[testenv:flake8]deps}
+    {[testenv:bandit]deps}
+commands =
+    {[testenv:black]commands}
+    {[testenv:flake8]commands}
+    {[testenv:bandit]commands}
+
+
+[testenv:black]
+description = run black code formatter
+skip_install = true
+basepython = python3.11
+deps =
+    black
+commands =
+    black {toxinidir}/src {toxinidir}/tests
+
+
+[testenv:flake8]
+description = run flake8 PEP8 code linter
+skip_install = true
+basepython = python3.11
+deps =
+    flake8
+    flake8-black
+commands =
+    flake8
+
+
+[testenv:bandit]
+description = run bandit static code analysis security tool
+skip_install = true
+basepython = python3.11
+deps =
+    bandit
+commands =
+    bandit -c "pyproject.toml" -v -r {toxinidir}/src
+
+"""
+
 [tool.black]
 line-length = 90
 exclude = '''
