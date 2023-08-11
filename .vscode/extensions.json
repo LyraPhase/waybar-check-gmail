@@ -9,6 +9,7 @@
         "davidanson.vscode-markdownlint",
         "littlefoxteam.vscode-python-test-adapter",
         "nickmillerdev.pytest-fixtures",
-        "mgesbert.python-path"
+        "mgesbert.python-path",
+        "ms-python.mypy-type-checker"
     ]
 }
