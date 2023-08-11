@@ -75,8 +75,8 @@ class Config:
                 else:
                     self._map[sec][key] = val
 
-    def section(self, section):
+    def section(self, section: str) -> Dict[str, Union[str, bool, None]]:
         return self._map[section]
 
-    def get(self, section, key):
+    def get(self, section: str, key: str) -> Union[str, bool, None]:
         return self._map[section][key]
