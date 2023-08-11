@@ -106,7 +106,7 @@ Ready to contribute? Here's how to set up `waybar-check-gmail` for local develop
     tox
 
    To get [`isort`][6], [`flake8`][3], [`flake8-isort`][7], [`black`][5],
-   [`bandit`][9], [`pytest`][10], and [`tox`][4],
+   [`bandit`][9], [`pytest`][10], [`mypy`][15], and [`tox`][4],
    just `pip install` them into your [`virtualenv`][1].
 
       pip install -r requirements-dev.txt
@@ -178,6 +178,7 @@ Before you submit a pull request, check that it meets these guidelines:
 [12]: https://github.com/pyenv/pyenv#installation
 [13]: https://github.com/pyenv/pyenv/tree/master/plugins/python-build
 [14]: https://coderwall.com/p/vj2jxg/select-install-python-versions-easily-with-fzf
+[15]: https://mypy.readthedocs.io/en/stable/getting_started.html
 
 <!-- TODO: Implement/document python-poetry -->
 <!-- [11]: https://hackersandslackers.com/python-poetry-package-manager/ -->
