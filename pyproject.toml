@@ -55,8 +55,7 @@ legacy_tox_ini = """
 [tox]
 requires =
     tox>=4
-#env_list = linters, type, py{38,39,310,311}
-env_list = linters, py{38,39,310,311}
+env_list = linters, type, py{38,39,310,311}
 
 [gh-actions]
 python =
@@ -102,6 +101,14 @@ commands =
     {[testenv:flake8]commands}
     {[testenv:bandit]commands}
 
+[testenv:type]
+description = run type checking
+basepython = python3.11
+skip_install = true
+deps =
+    {[testenv:mypy]deps}
+commands =
+    {[testenv:mypy]commands}
 
 [testenv:black]
 description = run black code formatter
@@ -132,6 +139,17 @@ deps =
     bandit
 commands =
     bandit -c "pyproject.toml" -v -r {toxinidir}/src
+
+
+[testenv:mypy]
+description = run mypy static type checker
+skip_install = true
+basepython = python3.11
+deps =
+    mypy
+commands =
+    mypy {posargs} {toxinidir}/src
+
 
 """
 
@@ -170,6 +188,14 @@ exclude_dirs = [
     "test-results*",
     "tests",
 ]
+
+[tool.mypy]
+ignore_missing_imports = true
+follow_imports = "normal"
+# ignore_missing_imports = true
+show_column_numbers = true
+# enable_error_code = "explicit-override"
+pretty = true
 
 [tool.pytest.ini_options]
 addopts = ["--import-mode=importlib"]
