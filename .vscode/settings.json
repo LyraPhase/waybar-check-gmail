@@ -17,5 +17,6 @@
         "pyproject.toml",
         "-v",
         "-r"
-      ]
+    ],
+    "mypy-type-checker.path": ["mypy"]
 }
